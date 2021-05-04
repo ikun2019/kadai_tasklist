@@ -6,18 +6,18 @@
     <c:param name="content">
         <c:choose>
             <c:when test="${task != null}">
-                <h2>id:${task.id}のタスク詳細ページ</h2>
-                <table>
+                <h2 class="mt-2">id:${task.id}のタスク詳細ページ</h2>
+                <table class="table table-bordered">
                     <tr>
-                        <th>タスク：</th>
+                        <th class="text-right">タスク：</th>
                         <td><c:out value="${task.content}"></c:out></td>
                     </tr>
                     <tr>
-                        <th>作成日時：</th>
+                        <th class="text-right">作成日時：</th>
                         <td><fmt:formatDate value="${task.created_at}" pattern="yyyy-MM-dd HH:mm:ss" /></td>
                     </tr>
                     <tr>
-                        <th>更新日時：</th>
+                        <th class="text-right">更新日時：</th>
                         <td><fmt:formatDate value="${task.updated_at}" pattern="yyyy-MM-dd HH:mm:ss" /></td>
                     </tr>
                 </table>

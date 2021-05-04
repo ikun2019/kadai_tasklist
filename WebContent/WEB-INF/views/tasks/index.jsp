@@ -3,14 +3,15 @@
 
 <c:import url="../layout/app.jsp">
     <c:param name="content">
-    <p><a href="${pageContext.request.contextPath}/new">新規タスクの投稿</a></p>
+    <p class="mt-2"><a href="${pageContext.request.contextPath}/new" class="btn btn-outline-secondary">新規タスクの投稿</a></p>
     <h2>タスク一覧</h2>
-    <ul>
+    <ul class="list-group">
         <c:forEach var="task" items="${tasks}">
-            <li>
+            <li class="list-group-item">
                 <a href="${pageContext.request.contextPath}/show?id=${task.id}">
-                    <c:out value="${task.content}" />
+                    <c:out value="${task.id}" />
                 </a>
+                ：<c:out value="${task.content}" />
             </li>
         </c:forEach>
     </ul>
