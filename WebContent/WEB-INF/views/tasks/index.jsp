@@ -10,7 +10,7 @@
         </c:if>
         <p class="mt-2"><a href="${pageContext.request.contextPath}/new" class="btn btn-outline-secondary">新規タスクの投稿</a></p>
         <h2>タスク一覧</h2>
-        <ul class="list-group">
+        <ul class="list-group overflow-auto">
             <c:forEach var="task" items="${tasks}">
                 <li class="list-group-item">
                     <a href="${pageContext.request.contextPath}/show?id=${task.id}">
@@ -21,5 +21,18 @@
             </c:forEach>
         </ul>
 
+        <div id="pagenation">
+            (全 ${tasks_count} 件)<br />
+            <c:forEach var="i" begin="1" end="${((tasks_count - 1) / 15) + 1}" step="1">
+                <c:choose>
+                    <c:when test="${i == page}">
+                        <c:out value="${i}" />
+                    </c:when>
+                    <c:otherwise>
+                        <a href="${pageContext.request.contextPath}/index?page=${i}"><c:out value="${i}" /></a>
+                    </c:otherwise>
+                </c:choose>
+            </c:forEach>
+        </div>
     </c:param>
 </c:import>
